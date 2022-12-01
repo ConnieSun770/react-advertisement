@@ -18,13 +18,16 @@
     "no-unused-labels": "warn",
     "no-use-before-define": "off",
     "import/no-unresolved": ["error",{ "ignore": [".png$", ".webp$", ".jpg$"] }],
-    "import/extensions": ["error","never", {"svg": "always"}]
+    "import/extensions": ["error","never", {"svg": "always"}],
+    "no-plusplus": "off",
+    "import/no-extraneous-dependencies": "off"
   },
   "settings": {
     "import/resolver": {
       "alias": {
         "map": [
-          ["pages", "./src/pages"]
+          ["pages", "./src/pages"],
+          ["@utils", "./src/pages"]
         ],
         "extensions": [".ts", ".tsx", ".js", ".jsx", ".json", ".d.ts"]
       }

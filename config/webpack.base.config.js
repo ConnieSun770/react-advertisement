@@ -10,20 +10,29 @@ const webpackBaseConfig = {
     filename: '[name].[fullhash:4].js',
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.tsx'],
+    extensions: ['.js', '.jsx', '.tsx', '.ts'],
     alias: {
       pages: path.join(__dirname, '../src/pages'),
+      '@utils': path.join(__dirname, '../src/utils/'),
     },
   },
   module: {
     rules: [
       {
-        test: /\.js[x]/,
-        use: 'babel-loader',
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            cacheDirectory: true,
+          },
+        },
       },
       {
-        test: /\.ts[x]/,
-        use: 'ts-loader',
+        test: /\.tsx?$/,
+        use: {
+          loader: 'ts-loader',
+        },
       },
       {
         test: /\.(css|scss)/,

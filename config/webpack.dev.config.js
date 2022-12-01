@@ -5,6 +5,9 @@ const OpenBrowserPlugin = require('open-browser-webpack4-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpackConfigBase = require('./webpack.base.config');
 const mockMiddleware = require('./mock.config');
+const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
+
+const smp = new SpeedMeasurePlugin();
 
 const PORT = 8080;
 const webpackDevConfig = {
@@ -36,4 +39,4 @@ const webpackDevConfig = {
   },
 };
 
-module.exports = merge(webpackConfigBase, webpackDevConfig);
+module.exports = smp.wrap(merge(webpackConfigBase, webpackDevConfig));

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Button } from 'antd';
+import { Button, DatePicker } from 'antd';
+import moment from 'moment';
 import axios from 'axios';
 import './style.scss';
 
@@ -14,6 +15,10 @@ class IndexPage extends Component<Props> {
     });
   }
 
+  handleDateChange = (date: moment.Moment|null) => {
+    console.log(moment(date).unix());
+  }
+
   render() {
     return (
       <div className="index-page">
@@ -21,6 +26,9 @@ class IndexPage extends Component<Props> {
         <div className="middle-box">
           <span>This is indexPage.</span>
           <Button type="primary">按钮</Button>
+        </div>
+        <div>
+          <DatePicker onChange={this.handleDateChange} />
         </div>
       </div>
     );
