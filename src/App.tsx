@@ -1,14 +1,27 @@
 import React, { Component } from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 import './style.scss';
 
-interface Props {}
+interface Props extends RouteComponentProps{}
 
 class App extends Component<Props> {
+  handleRoute = () => {
+    const { location, history } = this.props;
+    const { pathname } = location;
+    if (pathname === '/') {
+      history.push('index');
+      return false;
+    }
+    return true;
+  }
+
   render() {
+    const { children } = this.props;
     return (
-      <div style={{ color: 'red' }}>
-        Hello World
-        <span className="box">I am Connie.</span>
+      <div>
+        {
+          this.handleRoute() ? children : 'other'
+        }
       </div>
     );
   }

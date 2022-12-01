@@ -16,6 +16,18 @@
     "react/prefer-stateless-function": "off",
     "react/jsx-filename-extension": ["error",{"extensions": [".js",".jsx",".ts",".tsx"]}],
     "no-unused-labels": "warn",
-    "no-use-before-define": "off"
+    "no-use-before-define": "off",
+    "import/no-unresolved": ["error",{ "ignore": [".png$", ".webp$", ".jpg$"] }],
+    "import/extensions": ["error","never", {"svg": "always"}]
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["pages", "./src/pages"]
+        ],
+        "extensions": [".ts", ".tsx", ".js", ".jsx", ".json", ".d.ts"]
+      }
+    }
   }
 }
