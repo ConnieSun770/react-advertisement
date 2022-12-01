@@ -6,7 +6,7 @@ class App extends Component{
         return(
             <div style={{color:'red'}}>
                 Hello World
-                <span className={'box'}>I am Jack.</span>
+                <span className={'box'}>I am Connie.</span>
             </div>
         )
     }
