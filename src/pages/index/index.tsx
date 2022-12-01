@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-// import './style.scss';
+import { Button } from 'antd';
 
 interface Props {}
 
 class IndexPage extends Component<Props> {
   render() {
     return (
-      <div style={{ color: 'red' }}>
+      <div>
         Hello World
-        <span className="box">This is indexPage.</span>
+        <span>This is indexPage.</span>
+        <Button type="primary">按钮</Button>
       </div>
     );
   }
