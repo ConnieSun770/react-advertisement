@@ -26,7 +26,7 @@ const webpackDevConfig = {
     }),
   ],
   devServer: {
-    contentBase: path.join(__dirname, '.'),
+    contentBase: path.join(__dirname, '../src'),
     historyApiFallback: false,
     hot: false,
     host: '0.0.0.0',

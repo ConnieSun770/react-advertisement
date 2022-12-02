@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
-import './style.scss';
 
 interface Props extends RouteComponentProps{}
 

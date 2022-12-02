@@ -1,12 +1,82 @@
 .index-page{
-  .middle-box{
-    width: 500px;
-    height: 300px;
-    background-color: lightblue;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -150px;
-    margin-left: 125px;
+  .header-box{
+    width: 100%;
+    height: 66px;
+    margin-bottom: 32px;
+    //border: 1px solid red;
+  }
+  .footer-box{
+    width: 100%;
+    height: 100px;
+    margin-top: 32px;
+    border: 1px solid red;
+  }
+  .content-box{
+    width: 1220px;
+    margin: 20px auto 0;
+    display: flex;
+    justify-content: space-between;
+    .left-content{
+      width: 909px;
+      .chart-area{
+        height: 437px;
+        margin-bottom: 22px;
+        //border: 1px solid red;
+        .card-header{
+          height: 70px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding-left: 20px;
+          .card-title{
+            font-size: 24px;
+            color: #333;
+            position: relative;
+          }
+          .card-title::before{
+            content: "";
+            display: block;
+            position: absolute;
+            top: 8px;
+            left: -18px;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-top: 10px solid #bd050c;
+            transform: rotate(-90deg);
+          }
+        }
+        .search-box{
+          display: flex;
+          gap: 10px;
+        }
+      }
+      .promotion-card-area{
+        height: 100px;
+        margin-bottom: 22px;
+        border: 1px solid red;
+      }
+      .product-card-area{
+        height: 345px;
+        border: 1px solid red;
+      }
+    }
+    .right-content{
+      width: 288px;
+      .account-area{
+        height: 267px;
+        margin-bottom: 22px;
+        border: 1px solid red;
+      }
+      .banner-area{
+        height: 148px;
+        margin-bottom: 22px;
+        border: 1px solid red;
+      }
+      .product-news-area{
+        height: 467px;
+        border: 1px solid red;
+      }
+    }
   }
 }
