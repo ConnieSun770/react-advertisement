@@ -5,6 +5,7 @@ import Header from '@components/Header';
 import './style.scss';
 import { DatePicker, Select } from '_antd@4.24.4@antd';
 import DataChart from './components/DataChart';
+import CardArea from './components/CardArea';
 
 interface Props {}
 
@@ -58,7 +59,9 @@ class IndexPage extends Component<Props> {
               </div>
               <DataChart />
             </div>
-            <div className="promotion-card-area">promotion card</div>
+            <div className="promotion-card-area">
+              <CardArea />
+            </div>
             <div className="product-card-area">product card</div>
           </div>
           <div className="right-content">
