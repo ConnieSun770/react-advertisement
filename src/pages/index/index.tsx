@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import axios from 'axios';
+import { RouteComponentProps } from 'react-router-dom';
 import Header from '@components/Header';
 import './style.scss';
 import { DatePicker, Select } from '_antd@4.24.4@antd';
 import DataChart from './components/DataChart';
-import CardArea from './components/CardArea';
+import CardArea from './components/CardArea/index';
+import ProductCard from './components/ProductCard';
+import Account from './components/Account';
+import IndexBanner from './components/IndexBanner';
+import ProductNews from './components/ProductNews';
+import Footer from '@components/Footer';
 
-interface Props {}
+interface Props extends RouteComponentProps{}
 
 class IndexPage extends Component<Props> {
   componentDidMount() {
@@ -31,6 +37,7 @@ class IndexPage extends Component<Props> {
   };
 
   render() {
+    const { history } = this.props;
     return (
       <div className="index-page">
         <div className="header-box">
@@ -60,17 +67,27 @@ class IndexPage extends Component<Props> {
               <DataChart />
             </div>
             <div className="promotion-card-area">
-              <CardArea />
+              <CardArea history={history} />
             </div>
-            <div className="product-card-area">product card</div>
+            <div className="product-card-area">
+              <ProductCard />
+            </div>
           </div>
           <div className="right-content">
-            <div className="account-area">account-area</div>
-            <div className="banner-area">banner-area</div>
-            <div className="product-news-area">product-news-area</div>
+            <div className="account-area">
+              <Account />
+            </div>
+            <div className="banner-area">
+              <IndexBanner />
+            </div>
+            <div className="product-news-area">
+              <ProductNews />
+            </div>
           </div>
         </div>
-        <div className="footer-box">footer</div>
+        <div className="footer-box">
+          <Footer />
+        </div>
       </div>
     );
   }

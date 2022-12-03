@@ -12,6 +12,7 @@ interface IProps {
   btnStatus:boolean;
   cost?:number;
   budget?:number;
+  onEnter?:() => void;
 }
 interface IStates {
   editModalShow:boolean;
@@ -51,7 +52,12 @@ class PromotionCard extends Component<IProps, IStates> {
     });
   }
 
-  handleClick = () => {}
+  handleClick = () => {
+    const { onEnter } = this.props;
+    if (onEnter) {
+      onEnter();
+    }
+  }
 
   handleRadioChange = (newValue: number) => {
     this.setState({

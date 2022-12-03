@@ -3,6 +3,7 @@ import './style.scss';
 import PromotionCard from './PromotionCard';
 
 interface IProps {
+  history:any;
 }
 interface IStates {
 }
@@ -21,7 +22,7 @@ const PromotionData = [
     cost: 1,
     budget: 100,
     btnStatus: 0,
-    desc: '信息流推广借助大数据、用户需求定向和智能投放等技术，通过慕课APP、慕课贴吧、慕课视频等资讯流帮您触达高潜用户。',
+    desc: '信息流推广借助大数据、用户需求定向和智能投放等技术，通过APP、贴吧、视频等资讯流帮您触达高潜用户。',
     type: 2,
   },
   {
@@ -46,6 +47,11 @@ class Card extends Component<IProps, IStates> {
   state = {
   }
 
+  handleEnter = () => {
+    const { history } = this.props;
+    history.push('/promotion');
+  }
+
   render() {
     return (
       <div className="card-area-box">
@@ -59,7 +65,7 @@ class Card extends Component<IProps, IStates> {
               btnStatus={Boolean(cardItem.btnStatus)}
               desc={cardItem.desc}
               type={cardItem.type}
-              // onEnter={this.handleEnter}
+              onEnter={this.handleEnter}
             />
           ))
         }

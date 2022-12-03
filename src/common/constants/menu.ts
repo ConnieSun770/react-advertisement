@@ -151,19 +151,19 @@ export const MENU_FOOTER_CONFIG = [
     link: '',
   },
   {
-    title: '积木鱼',
+    title: '财务中心',
     link: '',
   },
   {
-    title: '爱翻翻',
+    title: '创意中心',
+    link: '',
+  },
+  {
+    title: '意见收集',
     link: '',
   },
   {
     title: '产品统计',
-    link: '',
-  },
-  {
-    title: '营销服务市场',
     link: '',
   },
   {
