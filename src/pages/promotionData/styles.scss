@@ -10,6 +10,7 @@
 
     .account-area {
        //border: 1px solid red;
+      box-shadow: 0 1px 4px 0 #e2e2e2;
     }
 
     .data-chart-area {
@@ -33,11 +34,12 @@
 
     .wave-analysis-area {
       margin-top: 22px;
-      height: 300px;
+      height: 440px;
       background-color: #ffffff;
       border-radius: 8px;
       padding: 18px 20px 30px;
-      border: 1px solid red;
+      box-shadow: 0 1px 4px 0 #e2e2e2;
+      //border: 1px solid red;
 
       .title {
         height: 32px;
@@ -53,11 +55,12 @@
 
     .user-portrait-area {
       margin-top: 22px;
-      height: 300px;
+      height: 500px;
       background-color: #ffffff;
       border-radius: 8px;
       padding: 18px 20px 30px;
       border: 1px solid red;
+      box-shadow: 0 1px 4px 0 #e2e2e2;
 
       .title {
         height: 32px;
