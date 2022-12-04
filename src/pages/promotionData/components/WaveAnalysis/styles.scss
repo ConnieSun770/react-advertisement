@@ -1,5 +1,11 @@
 .wave-analysis-component-box {
-  .card-tabs-box {}
+  .card-tabs-box {
+    .wave-analysis-title{
+      margin-bottom: 16px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
   .table-box {
     .title-and-btn {
       margin-bottom: 16px;
@@ -11,6 +17,6 @@
       }
     }
 
-    margin-top: 30px;;
+    margin-top: 20px;;
   }
 }

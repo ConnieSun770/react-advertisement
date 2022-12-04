@@ -123,7 +123,7 @@ class PromotionCard extends Component<IProps, IStates> {
         }
         <Modal
           title={`${name}预算设置`}
-          visible={editModalShow}
+          open={editModalShow}
           onOk={this.handleBudgetOk}
           onCancel={this.handleBudgetCancel}
           okText="确定"

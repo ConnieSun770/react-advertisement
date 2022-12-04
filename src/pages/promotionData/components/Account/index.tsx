@@ -25,10 +25,10 @@ class Account extends Component<IProps, IStates> {
             <span className="title-text">客户权益 </span>
             <span className="title-text">
               {
-                Array.from({ length: equitiesValue }, (_, index) => <StarFilled />)
+                Array.from({ length: equitiesValue }, (_, index) => <StarFilled key={`star-filled-${index}`} />)
               }
               {
-                Array.from({ length: 5 - equitiesValue }, (_, index) => <StarOutlined />)
+                Array.from({ length: 5 - equitiesValue }, (_, index) => <StarOutlined key={`star-outlined-${index}`} />)
               }
             </span>
           </div>

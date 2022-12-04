@@ -56,10 +56,11 @@ interface IProps extends RouteComponentProps{
 
 class PromotionDataPage extends Component<IProps, any> {
   render() {
+    const { history } = this.props;
     return (
       <div className="promotion-data-page-box">
         <div className="header">
-          <Header />
+          <Header history={history} />
         </div>
         <div className="content">
           <div className="account-area">
