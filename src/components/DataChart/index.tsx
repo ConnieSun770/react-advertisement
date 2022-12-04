@@ -34,9 +34,24 @@ const defaultCardData = [
   },
 ];
 
-class Chart extends Component {
+interface CardDataItem{
+  id:string;
+  name:string;
+  value:number;
+  percent:number|string;
+  icon:string;
+  isSelected:boolean;
+}
+
+interface IProps{
+  cardData?: CardDataItem[]
+}
+interface IStates{
+}
+
+class Chart extends Component<IProps, IStates> {
   state = {
-    cardData: defaultCardData,
+    cardData: this.props.cardData || defaultCardData,
     chartData: [
       {
         year: '2011',

@@ -5,13 +5,13 @@ import { RouteComponentProps } from 'react-router-dom';
 import Header from '@components/Header';
 import './style.scss';
 import { DatePicker, Select } from '_antd@4.24.4@antd';
-import DataChart from './components/DataChart';
+import Footer from '@components/Footer';
+import DataChart from '@components/DataChart';
 import CardArea from './components/CardArea/index';
 import ProductCard from './components/ProductCard';
 import Account from './components/Account';
 import IndexBanner from './components/IndexBanner';
 import ProductNews from './components/ProductNews';
-import Footer from '@components/Footer';
 
 interface Props extends RouteComponentProps{}
 
