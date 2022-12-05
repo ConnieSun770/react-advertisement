@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './style.scss';
 import { DatePicker, Select } from 'antd';
-import { observer, inject } from 'mobx-react';
-// @ts-ignore
+// import { observer, inject } from 'mobx-react';
 import { cloneDeep } from 'lodash';
 import CardTabs from '../CardTabs';
 import LineChart from '../LineChart';
@@ -52,8 +51,8 @@ interface IProps{
 interface IStates{
 }
 
-@inject('store')
-@observer
+// @inject('store')
+// @observer
 class Chart extends Component<IProps, IStates> {
   state = {
     cardData: this.props.cardData || defaultCardData,
@@ -97,10 +96,10 @@ class Chart extends Component<IProps, IStates> {
     ],
   }
 
-  componentDidMount() {
-    const { store } = this.props;
-    store.getChartData();
-  }
+  // componentDidMount() {
+  //   const { store } = this.props;
+  //   store.getChartData();
+  // }
 
   handleCardTabChange = (selectedId:string) => {
     const { cardData, chartData } = this.state;
@@ -123,10 +122,8 @@ class Chart extends Component<IProps, IStates> {
   render() {
     const {
       cardData,
-      // chartData,
+      chartData,
     } = this.state;
-    const { store } = this.props;
-    const { chartData = [] } = store;
     return (
       <div className="data-chart-component">
         <div className="card-tabs-box">

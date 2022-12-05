@@ -1,5 +1,10 @@
 const PRODUCTSERVICE_CONFIG = [
   {
+    marketToolTitle: '数据中心',
+    marketToolImgUrl: 'assets/productimgs/信息服务.png',
+    link: '/promotion',
+  },
+  {
     marketToolTitle: '课程通',
     marketToolImgUrl: 'assets/productimgs/直播系统.png',
     link: '',
@@ -12,11 +17,6 @@ const PRODUCTSERVICE_CONFIG = [
   {
     marketToolTitle: '财务中心',
     marketToolImgUrl: 'assets/productimgs/走势监测.png',
-    link: '',
-  },
-  {
-    marketToolTitle: '创意中心',
-    marketToolImgUrl: 'assets/productimgs/信息服务.png',
     link: '',
   },
   {

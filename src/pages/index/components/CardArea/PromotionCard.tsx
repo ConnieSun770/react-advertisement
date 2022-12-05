@@ -3,7 +3,7 @@ import {
   Button, Modal, Radio, InputNumber,
 } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
-import * as events from 'events';
+import { ThemeContext, ThemeType } from 'context/theme';
 
 interface IProps {
   name:string;
@@ -108,6 +108,7 @@ class PromotionCard extends Component<IProps, IStates> {
           btnStatus ? (
             <div className="btn-wrap">
               <Button
+                // type={this.context.buttonType}
                 type="primary"
                 size="small"
                 onClick={this.handleClick}
@@ -156,5 +157,6 @@ class PromotionCard extends Component<IProps, IStates> {
     );
   }
 }
+PromotionCard.contextType = ThemeContext;
 
 export default PromotionCard;

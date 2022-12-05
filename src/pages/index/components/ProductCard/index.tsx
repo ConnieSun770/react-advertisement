@@ -12,7 +12,7 @@ class Product extends Component<IProps, IStates> {
   state = {}
 
   handleServiceItemClick = (url: string) => {
-    window.location.href = url;
+    window.location.href = `#${url}`;
   }
 
   render() {

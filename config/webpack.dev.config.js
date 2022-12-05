@@ -3,9 +3,9 @@ const webpack = require('webpack');
 const { merge } = require('webpack-merge');
 const OpenBrowserPlugin = require('open-browser-webpack4-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 const webpackConfigBase = require('./webpack.base.config');
 const mockMiddleware = require('./mock.config');
-const SpeedMeasurePlugin = require("speed-measure-webpack-plugin");
 
 const smp = new SpeedMeasurePlugin();
 

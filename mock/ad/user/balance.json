@@ -1,0 +1,10 @@
+{
+	"code": 0,
+	"msg": "success",
+	"data": {
+		"name": "Connie Sun",
+		"balance": 8889,
+		"creditValue": 100,
+		"status": 1
+	}
+}

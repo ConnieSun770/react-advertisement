@@ -10,7 +10,7 @@ interface IStates {
 
 const PromotionData = [
   {
-    name: '搜索推广',
+    name: '推广数据',
     cost: 1,
     budget: 100,
     btnStatus: 1,

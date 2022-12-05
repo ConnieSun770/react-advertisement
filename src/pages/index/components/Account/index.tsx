@@ -1,44 +1,56 @@
 import React, { Component } from 'react';
 import './styles.scss';
 import { Button } from 'antd';
+import { ThemeContext, ThemeType } from 'context/theme';
+import { inject, observer } from '_mobx-react@7.6.0@mobx-react';
 
 interface IProps{
+  store?:any;
 }
 
 interface IStates{
-  status:number;
-  balance:number;
-  creditValue:number;
+  // name:string;
+  // status:number;
+  // balance:number;
+  // creditValue:number;
 }
 
+@inject('store')
+@observer
 class Account extends Component<IProps, IStates> {
   state = {
-    status: 0, // 0表示账户金额没有，1表示有账户金额
-    balance: 0,
-    creditValue: 0,
+    // name: 'Connie Sun',
+    // status: 0, // 0表示账户金额没有，1表示有账户金额
+    // balance: 0,
+    // creditValue: 0,
   }
 
   componentDidMount = () => {
-    setTimeout(() => {
-      this.setState({
-        status: 1,
-        balance: 1000,
-        creditValue: 2000,
-      });
-    }, 2000);
+    // const { store } = this.props;
+    // store.getUserBalance();
+    // setTimeout(() => {
+    //   this.setState({
+    //     status: 1,
+    //     balance: 1000,
+    //     creditValue: 2000,
+    //   });
+    // }, 2000);
   }
 
   render() {
+    // const {
+    //   name, status, balance, creditValue,
+    // } = this.state;
+    const { store } = this.props;
+    const { userBalance } = store;
     const {
-      status, balance, creditValue,
-    } = this.state;
-
+      name, status, balance, creditValue,
+    } = userBalance;
     return (
       <div className="account-component-box">
         <div>
           你好，
-          {/* {name} */}
-          Connie
+          {name}
         </div>
         <div className="examine">
           {
@@ -54,7 +66,13 @@ class Account extends Component<IProps, IStates> {
             <div className="text">推广余额</div>
             <div className="value">{balance}</div>
           </div>
-          <Button type="primary" size="small">充值</Button>
+          <Button
+            // type={this.context.buttonType}
+            type="primary"
+            size="small"
+          >
+            充值
+          </Button>
         </div>
         <div className="credit">
           <div>
@@ -67,5 +85,7 @@ class Account extends Component<IProps, IStates> {
     );
   }
 }
+
+Account.contextType = ThemeContext;
 
 export default Account;

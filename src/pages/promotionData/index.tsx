@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import { observer, Provider } from 'mobx-react';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 import DataChart from '@components/DataChart';
 import Account from './components/Account';
 import UserPortrait from './components/UserPortrait';
 import WaveAnalysis from './components/WaveAnalysis';
+import AutoModal from './components/AutoModal';
+import promotionStore from './promotionData.store';
 import './styles.scss';
 
 const cardData = [
@@ -54,32 +57,57 @@ const cardData = [
 interface IProps extends RouteComponentProps{
 }
 
+@observer
 class PromotionDataPage extends Component<IProps, any> {
+  state = {}
+
+  componentDidMount() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+    promotionStore.getExpiredPlanList();
+  }
+
+  handleAutoModalClick = (type: number, values?: any) => {
+    promotionStore.modalShow = false;
+    // const { modalShow } = this.state;
+    // this.setState({
+    //   modalShow: !modalShow,
+    // });
+  }
+
   render() {
     const { history } = this.props;
+    // const { modalShow } = this.state;
+    const { modalShow } = promotionStore;
     return (
-      <div className="promotion-data-page-box">
-        <div className="header">
-          <Header history={history} />
+      <Provider store={promotionStore}>
+        <div className="promotion-data-page-box">
+          <div className="header">
+            <Header history={history} />
+          </div>
+          <div className="content">
+            <div className="account-area">
+              <Account />
+            </div>
+            <div className="data-chart-area">
+              <DataChart cardData={cardData} />
+            </div>
+            <div className="wave-analysis-area">
+              <WaveAnalysis />
+            </div>
+            <div className="user-portrait-area">
+              <UserPortrait />
+            </div>
+          </div>
+          <div className="footer">
+            <Footer />
+          </div>
+          <AutoModal
+            visible={false}
+            onBtnClick={this.handleAutoModalClick}
+          />
         </div>
-        <div className="content">
-          <div className="account-area">
-            <Account />
-          </div>
-          <div className="data-chart-area">
-            <DataChart cardData={cardData} />
-          </div>
-          <div className="wave-analysis-area">
-            <WaveAnalysis />
-          </div>
-          <div className="user-portrait-area">
-            <UserPortrait />
-          </div>
-        </div>
-        <div className="footer">
-          <Footer />
-        </div>
-      </div>
+      </Provider>
     );
   }
 }
