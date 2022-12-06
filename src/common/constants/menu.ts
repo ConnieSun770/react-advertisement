@@ -90,6 +90,12 @@ export const MENU_INDEX_CONFIG = [
     url: '/promotion',
   },
   {
+    name: '会员中心',
+    menuChildren: [],
+    isActive: false,
+    url: '/vip',
+  },
+  {
     name: '网络大学',
     menuChildren: [
       {
@@ -111,12 +117,6 @@ export const MENU_INDEX_CONFIG = [
     ],
     isActive: false,
     url: '',
-  },
-  {
-    name: '会员中心',
-    menuChildren: [],
-    isActive: false,
-    url: '/vip',
   },
   {
     name: '财务中心',

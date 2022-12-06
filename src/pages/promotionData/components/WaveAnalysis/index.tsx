@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import { FormInstance } from 'antd/es/form';
 import {
-  Table, Button, Modal, Form, Input, InputNumber, Radio,
+  Table, Button, Modal, Form, Input, InputNumber, Radio, Tag,
 } from 'antd';
 import CardTabs from '../CardTabs';
 import './styles.scss';
 
-interface IProps { }
+interface IProps {
+  dataSource:any[];
+  addToTable:(row:any)=>void;
+}
 
 const columns = [
   {
     title: '排名',
     dataIndex: 'sort',
     key: 'sort',
+    render: (text:any) => <a>{text}</a>,
   },
   {
     title: '推广计划',
@@ -20,52 +24,31 @@ const columns = [
     key: 'planName',
   },
   {
-    title: '展现变化量',
-    dataIndex: 'showChangeNum',
-    key: 'showChangeNum',
+    title: '预算',
+    dataIndex: 'budget',
+    key: 'budget',
   },
   {
-    title: '展现变化率',
-    dataIndex: 'showChangeRatio',
-    key: 'showChangeRatio',
+    title: '城市',
+    dataIndex: 'city',
+    key: 'city',
   },
   {
-    title: '当期展现',
-    dataIndex: 'currentShow',
-    key: 'currentShow',
-  },
-  {
-    title: '同期展现',
-    dataIndex: 'contemporaryShow',
-    key: 'contemporaryShow',
+    title: '关键词',
+    dataIndex: 'keyword',
+    key: 'keyword',
   },
   {
     title: '操作',
-    dataIndex: 'operation',
-    key: 'operation',
-  },
-];
-
-const dataSource = [
-  {
-    key: '1',
-    sort: 1,
-    planName: '剖析React内部运行机制推广',
-    showChangeNum: 32,
-    showChangeRatio: 66,
-    currentShow: 121,
-    contemporaryShow: 125,
-    operation: '暂停推广',
-  },
-  {
-    key: '2',
-    sort: 2,
-    planName: '营销平台推广',
-    showChangeNum: 32,
-    showChangeRatio: 66,
-    currentShow: 121,
-    contemporaryShow: 125,
-    operation: '暂停推广',
+    dataIndex: 'autoOpenValue',
+    key: 'autoOpenValue',
+    render: (text: number) => (
+      <>
+        {
+          text ? '正在推广' : '暂停推广'
+        }
+      </>
+    ),
   },
 ];
 
@@ -126,11 +109,7 @@ class WaveAnalysis extends Component<IProps> {
     const { cardData } = this.state;
     const newCardData = cardData.map((cardItem: any) => {
       const tempCardItem = JSON.parse(JSON.stringify(cardItem));
-      if (tempCardItem.id === selectedId) {
-        tempCardItem.isSelected = true;
-      } else {
-        tempCardItem.isSelected = false;
-      }
+      tempCardItem.isSelected = tempCardItem.id === selectedId;
       return tempCardItem;
     });
     this.setState({
@@ -140,6 +119,7 @@ class WaveAnalysis extends Component<IProps> {
 
   render() {
     const { cardData, isModalOpen, initialValues } = this.state;
+    const { dataSource } = this.props;
 
     const showModal = () => {
       this.setState({
@@ -150,6 +130,15 @@ class WaveAnalysis extends Component<IProps> {
     const handleOk = () => {
       this.formRef.current!.validateFields().then((values: any) => {
         // 发生接口请求
+        const { addToTable } = this.props;
+
+        addToTable({
+          ...values.plan,
+          key: (dataSource.length + 1).toString(),
+          sort: dataSource.length + 1,
+        });
+        console.log(values);
+        // addToTable(values);
         this.setState({
           isModalOpen: false,
         });
@@ -194,7 +183,7 @@ class WaveAnalysis extends Component<IProps> {
           width={700}
         >
           <Form {...layout} ref={this.formRef} name="nest-messages" onFinish={onFinish} validateMessages={validateMessages} initialValues={initialValues}>
-            <Form.Item name={['plan', 'name']} label="计划名称" rules={[{ required: true }]}>
+            <Form.Item name={['plan', 'planName']} label="计划名称" rules={[{ required: true }]}>
               <Input />
             </Form.Item>
             <Form.Item

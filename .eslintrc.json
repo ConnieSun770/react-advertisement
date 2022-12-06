@@ -30,7 +30,8 @@
     "react/jsx-props-no-spreading": "off",
     "react/destructuring-assignment": "off",
     "no-template-curly-in-string": "off",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "jsx-a11y/anchor-is-valid": "off"
   },
   "settings": {
     "import/resolver": {

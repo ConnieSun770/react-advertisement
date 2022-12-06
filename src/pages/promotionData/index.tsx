@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 import DataChart from '@components/DataChart';
+import { addToTable } from 'store/index/actions';
 import Account from './components/Account';
 import UserPortrait from './components/UserPortrait';
 import WaveAnalysis from './components/WaveAnalysis';
@@ -65,6 +66,8 @@ interface userDataType {
 
 interface IProps extends RouteComponentProps{
   userData:userDataType;
+  dataSource:any[];
+  addTo:(row:any)=>void;
 }
 
 @observer
@@ -86,7 +89,7 @@ class PromotionDataPage extends Component<IProps, any> {
   }
 
   render() {
-    const { history, userData } = this.props;
+    const { history, userData, dataSource, addTo } = this.props;
     const {
       name, status, balance, creditValue, vipLevel,
     } = userData;
@@ -112,7 +115,7 @@ class PromotionDataPage extends Component<IProps, any> {
               <DataChart cardData={cardData} />
             </div>
             <div className="wave-analysis-area">
-              <WaveAnalysis />
+              <WaveAnalysis dataSource={dataSource} addToTable={addTo} />
             </div>
             <div className="user-portrait-area">
               <UserPortrait />
@@ -134,7 +137,14 @@ class PromotionDataPage extends Component<IProps, any> {
 function mapStateToProps(state: any) {
   return {
     userData: state.indexData.userData,
+    dataSource: state.indexData.dataSource,
   };
 }
 
-export default connect(mapStateToProps)(PromotionDataPage);
+function mapDispatchToProps(dispatch: any) {
+  return {
+    addTo: (row:any) => dispatch(addToTable(row)),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PromotionDataPage);

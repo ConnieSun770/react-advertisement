@@ -28,3 +28,8 @@ const setUserAvatar = (avatar: string) => ({
 export const changeUserAvatar = (avatar:string) => (dispatch:any) => {
   dispatch(setUserAvatar(avatar));
 };
+
+export const addToTable = (row:any) => ({
+  type: types.ADD_DATA_SOURCE,
+  row,
+});
