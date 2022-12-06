@@ -8,6 +8,7 @@ import MenuItem from '@components/Header/MenuItem';
 
 interface IProps {
   history?:any;
+  username:string;
 }
 interface IStates {
 }
@@ -23,8 +24,7 @@ class Header extends React.Component<IProps, IStates> {
   }
 
   render() {
-    const userName = 'Connie Sun';
-    const { history } = this.props;
+    const { history, username } = this.props;
     return (
       <div className="header-component-box">
         <div className="left">
@@ -48,7 +48,7 @@ class Header extends React.Component<IProps, IStates> {
         </div>
         <div className="user-info">
           <UserOutlined />
-          <span className="user-name">{userName}</span>
+          <span className="user-name">{username}</span>
         </div>
       </div>
     );

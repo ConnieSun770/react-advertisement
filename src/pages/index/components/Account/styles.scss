@@ -4,7 +4,15 @@
   padding: 18px 20px 2px;
   border-radius: 8px;
   box-shadow: 1px 1px 20px 0 rgba(183,183,188,.1);
-
+  .name-vip{
+    display: flex;
+    justify-content: space-between;
+    .icon{
+      font-size: 20px;
+      margin-top: -2px;
+      margin-right: -9px;
+    }
+  }
   .examine {
     display: flex;
     margin-top: 10px;

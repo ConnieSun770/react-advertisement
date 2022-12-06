@@ -5,6 +5,7 @@ import { renderRoutes } from 'react-router-config';
 import IndexPage from 'pages/index/index';
 import LoginPage from 'pages/login/index';
 import PromotionDataPage from 'pages/promotionData/index';
+import VipPage from 'pages/vipPage/index';
 import App from '../App';
 
 const allRoutes = [
@@ -18,6 +19,12 @@ const allRoutes = [
     path: '/promotion',
     exact: false,
     component: PromotionDataPage,
+    title: '',
+  },
+  {
+    path: '/vip',
+    exact: false,
+    component: VipPage,
     title: '',
   },
   {

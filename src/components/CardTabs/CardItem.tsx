@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CardItemType } from '@components/DataChart/components/CardTabs/types';
+import { CardItemType } from './types';
 
 interface IProps {
   itemData:CardItemType;

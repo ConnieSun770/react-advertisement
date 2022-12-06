@@ -113,10 +113,10 @@ export const MENU_INDEX_CONFIG = [
     url: '',
   },
   {
-    name: '账户中心',
+    name: '会员中心',
     menuChildren: [],
     isActive: false,
-    url: '',
+    url: '/vip',
   },
   {
     name: '财务中心',

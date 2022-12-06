@@ -5,6 +5,11 @@ import { ThemeContext, ThemeType } from 'context/theme';
 import { inject, observer } from '_mobx-react@7.6.0@mobx-react';
 
 interface IProps{
+  name:string;
+  status:number;
+  balance:number;
+  creditValue:number;
+  vipLevel:number;
   store?:any;
 }
 
@@ -41,16 +46,19 @@ class Account extends Component<IProps, IStates> {
     // const {
     //   name, status, balance, creditValue,
     // } = this.state;
-    const { store } = this.props;
-    const { userBalance } = store;
+    // const { store } = this.props;
+    // const { userBalance } = store;
     const {
-      name, status, balance, creditValue,
-    } = userBalance;
+      name, status, balance, creditValue, vipLevel,
+    } = this.props;
     return (
       <div className="account-component-box">
-        <div>
-          你好，
-          {name}
+        <div className="name-vip">
+          <span>
+            你好，
+            {name}
+          </span>
+          <div className={`icon iconfont icon-vip${vipLevel}`} />
         </div>
         <div className="examine">
           {

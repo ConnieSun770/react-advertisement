@@ -5,6 +5,7 @@
 		"name": "Connie Sun",
 		"balance": 8889,
 		"creditValue": 100,
-		"status": 1
+		"status": 1,
+		"vipLevel": 4
 	}
 }

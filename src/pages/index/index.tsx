@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import { observer, Provider } from 'mobx-react';
-import axios from 'axios';
+import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router-dom';
 import Header from '@components/Header';
 import './style.scss';
@@ -10,6 +10,7 @@ import { SettingOutlined } from '@ant-design/icons';
 import Footer from '@components/Footer';
 import DataChartIndex from '@components/DataChartIndex';
 import { ThemeContext, ThemeType } from 'context/theme';
+import { getUserBalance } from 'store/index/actions';
 import CardArea from './components/CardArea/index';
 import ProductCard from './components/ProductCard';
 import Account from './components/Account';
@@ -17,7 +18,18 @@ import IndexBanner from './components/IndexBanner';
 import ProductNews from './components/ProductNews';
 import indexDataStore from './indexData.store';
 
-interface Props extends RouteComponentProps{}
+interface userDataType {
+  name:string;
+  status:number;
+  balance:number;
+  creditValue:number;
+  vipLevel:number;
+}
+
+interface Props extends RouteComponentProps{
+  getUser:()=>void;
+  userData:userDataType;
+}
 
 interface States{
   theme:ThemeType;
@@ -31,15 +43,8 @@ class IndexPage extends Component<Props, States> {
   }
 
   componentDidMount() {
-    // axios.get('/ad/index/gray').then((res) => {
-    //   console.log(res.data);
-    // }).catch((err) => {
-    //   console.log(err);
-    // });
-    // eslint-disable-next-line no-multi-assign
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
-    indexDataStore.getUserBalance();
   }
 
   handleDateChange = (date: moment.Moment|null) => {
@@ -65,14 +70,17 @@ class IndexPage extends Component<Props, States> {
   }
 
   render() {
-    const { history } = this.props;
+    const { history, userData } = this.props;
+    const {
+      name, balance, creditValue, status, vipLevel,
+    } = userData;
     const { theme } = this.state;
     return (
       // <ThemeContext.Provider value={theme}>
       <Provider store={indexDataStore}>
         <div className="index-page">
           <div className="header-box">
-            <Header history={history} />
+            <Header history={history} username={name} />
           </div>
           <div className="content-box">
             <div className="left-content">
@@ -106,7 +114,7 @@ class IndexPage extends Component<Props, States> {
             </div>
             <div className="right-content">
               <div className="account-area">
-                <Account />
+                <Account name={name} balance={balance} creditValue={creditValue} status={status} vipLevel={vipLevel} />
               </div>
               <div className="banner-area">
                 <IndexBanner />
@@ -132,4 +140,15 @@ class IndexPage extends Component<Props, States> {
   }
 }
 
-export default IndexPage;
+function mapStateToProps(state: any) {
+  return {
+    userData: state.indexData.userData,
+  };
+}
+function mapDispatchToProps(dispatch: any) {
+  return {
+    getUser: () => dispatch(getUserBalance()),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(IndexPage);

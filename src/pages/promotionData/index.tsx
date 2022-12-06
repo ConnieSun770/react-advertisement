@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { observer, Provider } from 'mobx-react';
+import { connect } from 'react-redux';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 import DataChart from '@components/DataChart';
@@ -54,7 +55,16 @@ const cardData = [
   },
 ];
 
+interface userDataType {
+  name:string;
+  status:number;
+  balance:number;
+  creditValue:number;
+  vipLevel:number;
+}
+
 interface IProps extends RouteComponentProps{
+  userData:userDataType;
 }
 
 @observer
@@ -76,18 +86,27 @@ class PromotionDataPage extends Component<IProps, any> {
   }
 
   render() {
-    const { history } = this.props;
+    const { history, userData } = this.props;
+    const {
+      name, status, balance, creditValue, vipLevel,
+    } = userData;
     // const { modalShow } = this.state;
     const { modalShow } = promotionStore;
     return (
       <Provider store={promotionStore}>
         <div className="promotion-data-page-box">
           <div className="header">
-            <Header history={history} />
+            <Header history={history} username={name} />
           </div>
           <div className="content">
             <div className="account-area">
-              <Account />
+              <Account
+                name={name}
+                status={status}
+                balance={balance}
+                creditValue={creditValue}
+                vipLevel={vipLevel}
+              />
             </div>
             <div className="data-chart-area">
               <DataChart cardData={cardData} />
@@ -112,4 +131,10 @@ class PromotionDataPage extends Component<IProps, any> {
   }
 }
 
-export default PromotionDataPage;
+function mapStateToProps(state: any) {
+  return {
+    userData: state.indexData.userData,
+  };
+}
+
+export default connect(mapStateToProps)(PromotionDataPage);
