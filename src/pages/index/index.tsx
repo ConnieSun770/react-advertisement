@@ -114,7 +114,13 @@ class IndexPage extends Component<Props, States> {
             </div>
             <div className="right-content">
               <div className="account-area">
-                <Account name={name} balance={balance} creditValue={creditValue} status={status} vipLevel={vipLevel} />
+                <Account
+                  name={name}
+                  balance={balance}
+                  creditValue={creditValue}
+                  status={status}
+                  vipLevel={vipLevel}
+                />
               </div>
               <div className="banner-area">
                 <IndexBanner />

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import * as types from './ActionTypes';
+import { CHANGE_USER_AVATAR } from './ActionTypes';
 
 // export function receiveUserBalance(userBalance: any) {
 //   return {
@@ -17,4 +18,13 @@ export const getUserBalance = () => (dispatch:any) => {
   axios.get('ad/user/balance').then((res) => {
     dispatch(receiveUserBalance(res.data.data));
   });
+};
+
+const setUserAvatar = (avatar: string) => ({
+  type: types.CHANGE_USER_AVATAR,
+  avatar,
+});
+
+export const changeUserAvatar = (avatar:string) => (dispatch:any) => {
+  dispatch(setUserAvatar(avatar));
 };

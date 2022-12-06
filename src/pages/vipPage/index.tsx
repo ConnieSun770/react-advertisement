@@ -1,24 +1,57 @@
 import React, { Component } from 'react';
+import './styles.scss';
+import { connect } from 'react-redux';
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 import { RouteComponentProps } from 'react-router-dom';
+import UserInfo from './components/UserInfo';
+import VipCard from './components/VipCard';
+import { userDataType } from './types';
 
-interface IProps extends RouteComponentProps{}
+interface IProps extends RouteComponentProps{
+  userData:userDataType;
+}
+
 interface IStates{}
 
 class VipPage extends Component<IProps, IStates> {
   render() {
-    const { history } = this.props;
+    const { history, userData } = this.props;
+    const {
+      name, status, vipLevel, creditValue, balance, avatar,
+    } = userData;
     return (
       <div className="vip-page-components-box">
         <div className="header-box">
           <Header username="Connie Sun" history={history} />
         </div>
-        会员中心
-        <Footer />
+        <div className="content-box">
+          <div className="user-info-area">
+            <UserInfo
+              name={name}
+              status={status}
+              vipLevel={vipLevel}
+              creditValue={creditValue}
+              balance={balance}
+              avatar={avatar}
+            />
+          </div>
+          <div className="vip-info-area">
+            <VipCard />
+          </div>
+        </div>
+        <div className="footer-box">
+          <Footer />
+        </div>
       </div>
     );
   }
 }
 
-export default VipPage;
+function mapStateToProps(state: any) {
+  return {
+    userData: state.indexData.userData,
+  };
+}
+
+export default connect(mapStateToProps)(VipPage);

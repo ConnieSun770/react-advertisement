@@ -1,0 +1,26 @@
+.vip-page-components-box{
+  background-color: #faf8f8;
+  .header-box{
+    width: 100%;
+    height: 66px;
+    margin-bottom: 52px;
+  }
+  .footer-box{
+    width: 100%;
+    height: 100px;
+    margin-top: 32px;
+  }
+  .content-box{
+    width: 1220px;
+    margin: 0 auto 32px;
+    .user-info-area{
+      height: 450px;
+      //border: 1px solid red;
+      margin-bottom: 42px;
+    }
+    .vip-info-area{
+      height: 200px;
+      //border: 1px solid red;
+    }
+  }
+}

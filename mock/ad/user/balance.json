@@ -6,6 +6,7 @@
 		"balance": 8889,
 		"creditValue": 100,
 		"status": 1,
-		"vipLevel": 4
+		"vipLevel": 2,
+		"avatar": "冰川"
 	}
 }
