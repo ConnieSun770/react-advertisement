@@ -14,10 +14,19 @@
     background: #fff;
     padding: 6px 10px;
     .icon{
-      font-size: 42px;
+      font-size: 50px;
     }
   }
   .vip-card-current{
+    .row{
+      display: flex;
+      font-size: 18px;
+      //color: #fff;
+      .label-text{
+        width: 150px;
+        margin-left: 25px;
+      }
+    }
 
   }
   .vip-card-next{

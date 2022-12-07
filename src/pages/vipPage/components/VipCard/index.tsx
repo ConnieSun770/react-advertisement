@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Modal, notification } from 'antd';
 // import { userDataType } from '../../types';
+import VIP_LIST from 'common/constants/vipInfo';
 import './styles.scss';
 import { changeBalance, levelUp } from 'store/index/actions';
 import { connect } from 'react-redux';
@@ -63,23 +64,65 @@ class VipCard extends Component<IProps, IStates> {
     const { modalOpen } = this.state;
     return (
       <div className="vip-card-component-box">
-        <div className="vip-card vip-card-current">
-          <div className={`icon iconfont icon-vip${vipLevel}`} />
-        </div>
+        {
+          vipLevel && (
+            <div className="vip-card vip-card-current" style={{ border: `6px solid ${VIP_LIST[vipLevel - 1].color}` }}>
+              <div className={`icon iconfont icon-vip${vipLevel}`} />
+              <div className="row">
+                <div className="label-text">当前推广功能:</div>
+                <div className="value-text">
+                  {VIP_LIST[vipLevel - 1].description}
+                </div>
+              </div>
+              <div className="row">
+                <div className="label-text">推广效果:</div>
+                <div className="value-text">{`增加${vipLevel * 10}%`}</div>
+              </div>
+            </div>
+          )
+        }
         <div className="arrow">
           <Button type="primary" size="large" onClick={() => this.showModal(balance, 1000)} disabled={vipLevel >= 5}>
             {`升级${' =>'}`}
           </Button>
         </div>
-        <div className="vip-card vip-card-next">
-          {
-            vipLevel >= 5 ? (
+        {
+          vipLevel && (vipLevel >= 5 ? (
+            <div className="vip-card vip-card-next" style={{ border: `6px solid ${VIP_LIST[4].color}` }}>
               <div className="icon iconfont icon-vip5" />
-            ) : (
+              <div className="row">
+                <div className="label-text">当前推广功能:</div>
+                <div className="value-text">
+                  {VIP_LIST[4].description}
+                </div>
+              </div>
+              <div className="row">
+                <div className="label-text">推广效果:</div>
+                <div className="value-text">{`增加${5 * 10}%`}</div>
+              </div>
+            </div>
+          ) : (
+            <div className="vip-card vip-card-current" style={{ border: `6px solid ${VIP_LIST[vipLevel].color}` }}>
               <div className={`icon iconfont icon-vip${vipLevel + 1}`} />
-            )
-          }
-        </div>
+              <div className="row">
+                <div className="label-text">推广功能:</div>
+                <div className="value-text">
+                  {VIP_LIST[vipLevel - 1].description}
+                </div>
+              </div>
+              <div className="row">
+                <div className="label-text">新增功能:</div>
+                <div className="value-text">
+                  {VIP_LIST[vipLevel].new}
+                </div>
+              </div>
+              <div className="row">
+                <div className="label-text">推广效果:</div>
+                <div className="value-text">{`增加${(vipLevel + 1) * 10}%`}</div>
+              </div>
+            </div>
+          ))
+        }
         <Modal
           title="VIP升级"
           open={modalOpen}
