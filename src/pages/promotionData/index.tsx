@@ -89,7 +89,9 @@ class PromotionDataPage extends Component<IProps, any> {
   }
 
   render() {
-    const { history, userData, dataSource, addTo } = this.props;
+    const {
+      history, userData, dataSource, addTo,
+    } = this.props;
     const {
       name, status, balance, creditValue, vipLevel,
     } = userData;

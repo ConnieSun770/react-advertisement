@@ -1,6 +1,6 @@
 import axios from 'axios';
 import * as types from './ActionTypes';
-import { CHANGE_USER_AVATAR } from './ActionTypes';
+import { CHANGE_BALANCE, CHANGE_USER_AVATAR } from './ActionTypes';
 
 // export function receiveUserBalance(userBalance: any) {
 //   return {
@@ -32,4 +32,14 @@ export const changeUserAvatar = (avatar:string) => (dispatch:any) => {
 export const addToTable = (row:any) => ({
   type: types.ADD_DATA_SOURCE,
   row,
+});
+
+export const levelUp = (vipLevel:number) => ({
+  type: types.VIP_LEVEL_UP,
+  vipLevel,
+});
+
+export const changeBalance = (newBalance:number) => ({
+  type: types.CHANGE_BALANCE,
+  newBalance,
 });

@@ -11,6 +11,7 @@ interface IProps{
   creditValue:number;
   vipLevel:number;
   store?:any;
+  history:any;
 }
 
 interface IStates{
@@ -49,7 +50,7 @@ class Account extends Component<IProps, IStates> {
     // const { store } = this.props;
     // const { userBalance } = store;
     const {
-      name, status, balance, creditValue, vipLevel,
+      name, status, balance, creditValue, vipLevel, history,
     } = this.props;
     return (
       <div className="account-component-box">
@@ -78,6 +79,7 @@ class Account extends Component<IProps, IStates> {
             // type={this.context.buttonType}
             type="primary"
             size="small"
+            onClick={() => history.push('/top_up')}
           >
             充值
           </Button>

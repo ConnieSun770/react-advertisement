@@ -6,6 +6,7 @@ import IndexPage from 'pages/index/index';
 import LoginPage from 'pages/login/index';
 import PromotionDataPage from 'pages/promotionData/index';
 import VipPage from 'pages/vipPage/index';
+import TopUpPage from 'pages/topUpPage';
 import App from '../App';
 
 const allRoutes = [
@@ -31,6 +32,12 @@ const allRoutes = [
     path: '/login',
     exact: false,
     component: LoginPage,
+    title: '',
+  },
+  {
+    path: '/top_up',
+    exact: false,
+    component: TopUpPage,
     title: '',
   },
 ];

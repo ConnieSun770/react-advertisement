@@ -3,10 +3,10 @@
 	"msg": "success",
 	"data": {
 		"name": "Connie Sun",
-		"balance": 8889,
+		"balance": 2889,
 		"creditValue": 100,
 		"status": 1,
-		"vipLevel": 2,
+		"vipLevel": 1,
 		"avatar": "冰川"
 	}
 }

@@ -36,6 +36,12 @@ const indexData = (state = initialState, action: any) => {
   case 'ADD_DATA_SOURCE':
     newState.dataSource = [...newState.dataSource, action.row];
     return newState;
+  case 'VIP_LEVEL_UP':
+    newState.userData = { ...newState.userData, vipLevel: action.vipLevel + 1 };
+    return newState;
+  case 'CHANGE_BALANCE':
+    newState.userData = { ...newState.userData, balance: action.newBalance };
+    return newState;
   default:
     return state;
   }

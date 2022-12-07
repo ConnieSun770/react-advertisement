@@ -120,6 +120,7 @@ class IndexPage extends Component<Props, States> {
                   creditValue={creditValue}
                   status={status}
                   vipLevel={vipLevel}
+                  history={history}
                 />
               </div>
               <div className="banner-area">

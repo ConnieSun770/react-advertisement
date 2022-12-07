@@ -119,18 +119,14 @@ export const MENU_INDEX_CONFIG = [
     url: '',
   },
   {
-    name: '财务中心',
+    name: '充值中心',
     menuChildren: [],
     isActive: false,
-    url: '',
+    url: '/top_up',
   },
   {
     name: '平台工具',
     menuChildren: [
-      {
-        label: '产品营销API',
-        url: '',
-      },
       {
         label: '产品营销客户端',
         url: '',

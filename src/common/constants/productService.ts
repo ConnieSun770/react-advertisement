@@ -10,6 +10,11 @@ const PRODUCTSERVICE_CONFIG = [
     link: '/vip',
   },
   {
+    marketToolTitle: '充值中心',
+    marketToolImgUrl: 'assets/productimgs/走势监测.png',
+    link: '/top_up',
+  },
+  {
     marketToolTitle: '课程通',
     marketToolImgUrl: 'assets/productimgs/直播系统.png',
     link: '',
@@ -17,11 +22,6 @@ const PRODUCTSERVICE_CONFIG = [
   {
     marketToolTitle: '操作盘',
     marketToolImgUrl: 'assets/productimgs/小程序对接.png',
-    link: '',
-  },
-  {
-    marketToolTitle: '财务中心',
-    marketToolImgUrl: 'assets/productimgs/走势监测.png',
     link: '',
   },
   {

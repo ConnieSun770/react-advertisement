@@ -37,7 +37,7 @@ class VipPage extends Component<IProps, IStates> {
             />
           </div>
           <div className="vip-info-area">
-            <VipCard />
+            <VipCard balance={balance} vipLevel={vipLevel} history={history} />
           </div>
         </div>
         <div className="footer-box">
