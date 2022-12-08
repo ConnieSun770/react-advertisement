@@ -30,7 +30,7 @@ class TopUpPage extends Component<IProps, IStates> {
           <Header history={history} username={name} />
         </div>
         <div className="content-box">
-          1
+
         </div>
         <div className="footer-box">
           <Footer />

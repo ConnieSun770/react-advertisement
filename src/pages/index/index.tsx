@@ -106,7 +106,7 @@ class IndexPage extends Component<Props, States> {
                 <DataChartIndex />
               </div>
               <div className="promotion-card-area">
-                <CardArea history={history} />
+                <CardArea history={history} vipLevel={vipLevel} />
               </div>
               <div className="product-card-area">
                 <ProductCard />

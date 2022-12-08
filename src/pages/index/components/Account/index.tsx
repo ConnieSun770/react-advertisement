@@ -59,14 +59,14 @@ class Account extends Component<IProps, IStates> {
             你好，
             {name}
           </span>
-          <div className={`icon iconfont icon-vip${vipLevel}`} />
+          <div className={`icon iconfont icon-vip${vipLevel}`} onClick={() => history.push('/vip')} />
         </div>
         <div className="examine">
           {
             status === 0 ? (
-              <div className="status">开户金未到</div>
+              <div className="status">账户余额不可用</div>
             ) : (
-              <div className="status-ok">开户金已到</div>
+              <div className="status-ok">账户余额可用</div>
             )
           }
         </div>

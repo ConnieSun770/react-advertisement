@@ -12,6 +12,8 @@ interface IProps {
   btnStatus:boolean;
   cost?:number;
   budget?:number;
+  vipLevel:number;
+  vipRequired?:number;
   onEnter?:() => void;
 }
 interface IStates {
@@ -67,7 +69,7 @@ class PromotionCard extends Component<IProps, IStates> {
 
   render() {
     const {
-      name, desc, type, btnStatus, cost = 0, budget = 0,
+      name, desc, type, btnStatus, vipLevel, vipRequired = 0, cost = 0, budget = 0,
     } = this.props;
     const {
       editModalShow,
@@ -105,7 +107,7 @@ class PromotionCard extends Component<IProps, IStates> {
           )
         }
         {
-          btnStatus ? (
+          type === 1 ? (
             <div className="btn-wrap">
               <Button
                 // type={this.context.buttonType}
@@ -116,9 +118,20 @@ class PromotionCard extends Component<IProps, IStates> {
                 进入
               </Button>
             </div>
+          ) : vipLevel >= vipRequired ? (
+            <div className="btn-wrap">
+              <Button
+                // type={this.context.buttonType}
+                type="primary"
+                size="small"
+                onClick={this.handleClick}
+              >
+                申请
+              </Button>
+            </div>
           ) : (
             <div className="btn-wrap">
-              <Button type="primary" size="small" disabled>不可申请</Button>
+              <Button type="primary" size="small" disabled title={`需要VIP${vipRequired}级`}>不可申请</Button>
             </div>
           )
         }

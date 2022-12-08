@@ -95,9 +95,9 @@ class UserInfo extends Component<IProps, IStates> {
             <div className="value-text examine">
               {
                 status === 0 ? (
-                  <span className="status">开户金未到</span>
+                  <span className="status">账户余额不可用</span>
                 ) : (
-                  <span className="status-ok">开户金已到</span>
+                  <span className="status-ok">账户余额可用</span>
                 )
               }
             </div>

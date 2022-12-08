@@ -47,12 +47,12 @@ class Account extends Component<IProps, IStates> {
               status ? (
                 <>
                   <span className="circle circle-active" />
-                  <span className="value-text">账户金已到</span>
+                  <span className="value-text">账户余额可用</span>
                 </>
               ) : (
                 <>
                   <span className="circle" />
-                  <span className="value-text">账户金未到</span>
+                  <span className="value-text">账户余额不可用</span>
                 </>
               )
             }

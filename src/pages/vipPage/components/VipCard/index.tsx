@@ -62,16 +62,18 @@ class VipCard extends Component<IProps, IStates> {
   render() {
     const { vipLevel, balance } = this.props;
     const { modalOpen } = this.state;
+    const currentVip = VIP_LIST[vipLevel - 1];
+    const nextVip = VIP_LIST[vipLevel];
     return (
       <div className="vip-card-component-box">
         {
           vipLevel && (
-            <div className="vip-card vip-card-current" style={{ border: `6px solid ${VIP_LIST[vipLevel - 1].color}` }}>
+            <div className="vip-card vip-card-current" style={{ border: `6px solid ${currentVip.color}` }}>
               <div className={`icon iconfont icon-vip${vipLevel}`} />
               <div className="row">
                 <div className="label-text">当前推广功能:</div>
                 <div className="value-text">
-                  {VIP_LIST[vipLevel - 1].description}
+                  {currentVip.description}
                 </div>
               </div>
               <div className="row">
@@ -83,12 +85,12 @@ class VipCard extends Component<IProps, IStates> {
         }
         <div className="arrow">
           <Button type="primary" size="large" onClick={() => this.showModal(balance, 1000)} disabled={vipLevel >= 5}>
-            {`升级${' =>'}`}
+            {vipLevel >= 5 ? '最高级' : `升级${' =>'}`}
           </Button>
         </div>
         {
           vipLevel && (vipLevel >= 5 ? (
-            <div className="vip-card vip-card-next" style={{ border: `6px solid ${VIP_LIST[4].color}` }}>
+            <div className="vip-card vip-card-current" style={{ border: `6px solid ${VIP_LIST[4].color}` }}>
               <div className="icon iconfont icon-vip5" />
               <div className="row">
                 <div className="label-text">当前推广功能:</div>
@@ -102,18 +104,18 @@ class VipCard extends Component<IProps, IStates> {
               </div>
             </div>
           ) : (
-            <div className="vip-card vip-card-current" style={{ border: `6px solid ${VIP_LIST[vipLevel].color}` }}>
+            <div className="vip-card vip-card-current" style={{ border: `6px solid ${nextVip.color}` }}>
               <div className={`icon iconfont icon-vip${vipLevel + 1}`} />
               <div className="row">
-                <div className="label-text">推广功能:</div>
+                <div className="label-text">{`VIP${vipLevel}推广功能:`}</div>
                 <div className="value-text">
-                  {VIP_LIST[vipLevel - 1].description}
+                  {currentVip.description}
                 </div>
               </div>
               <div className="row">
                 <div className="label-text">新增功能:</div>
                 <div className="value-text">
-                  {VIP_LIST[vipLevel].new}
+                  {nextVip.new}
                 </div>
               </div>
               <div className="row">
@@ -133,8 +135,9 @@ class VipCard extends Component<IProps, IStates> {
         >
           <p>升级需花费：1000元</p>
           <p>
-            账户余额:
+            账户余额：
             {balance}
+            元
           </p>
         </Modal>
       </div>
