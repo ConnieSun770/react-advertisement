@@ -111,6 +111,7 @@ class PromotionDataPage extends Component<IProps, any> {
                 balance={balance}
                 creditValue={creditValue}
                 vipLevel={vipLevel}
+                history={history}
               />
             </div>
             <div className="data-chart-area">

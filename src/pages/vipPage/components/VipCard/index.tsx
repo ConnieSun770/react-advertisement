@@ -130,7 +130,7 @@ class VipCard extends Component<IProps, IStates> {
           open={modalOpen}
           okText="确认"
           cancelText="取消"
-          onOk={() => this.handleOk(vipLevel, balance - 1000)}
+          onOk={() => this.handleOk(vipLevel, -1000)}
           onCancel={this.handleCancel}
         >
           <p>升级需花费：1000元</p>

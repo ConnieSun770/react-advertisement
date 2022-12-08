@@ -11,6 +11,7 @@ interface IProps{
   balance:number;
   creditValue:number;
   vipLevel:number;
+  history?:any;
 }
 interface IStates{
 }
@@ -21,7 +22,7 @@ class Account extends Component<IProps, IStates> {
 
   render() {
     const {
-      name, status, balance, vipLevel, creditValue,
+      name, status, balance, vipLevel, creditValue, history,
     } = this.props;
     return (
       <div className="promotion-account-component-box">
@@ -60,7 +61,7 @@ class Account extends Component<IProps, IStates> {
           <div className="info-item">
             <span className="title-text">推广余额 </span>
             <span className="value-text">{balance}</span>
-            <Button type="primary" size="small">充值</Button>
+            <Button type="primary" size="small" onClick={() => history.push('/top_up')}>充值</Button>
           </div>
           <div className="info-item">
             <span className="title-text">信用值 </span>

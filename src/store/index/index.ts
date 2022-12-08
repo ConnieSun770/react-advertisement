@@ -1,5 +1,12 @@
 const initialState = {
-  userData: {},
+  userData: {
+    name: '',
+    balance: 0,
+    creditValue: 0,
+    status: 0,
+    vipLevel: 1,
+    avatar: '',
+  },
   dataSource: [
     {
       key: '1',
@@ -40,7 +47,10 @@ const indexData = (state = initialState, action: any) => {
     newState.userData = { ...newState.userData, vipLevel: action.vipLevel + 1 };
     return newState;
   case 'CHANGE_BALANCE':
-    newState.userData = { ...newState.userData, balance: action.newBalance };
+    newState.userData = {
+      ...newState.userData,
+      balance: state.userData.balance + action.addBalance,
+    };
     return newState;
   default:
     return state;

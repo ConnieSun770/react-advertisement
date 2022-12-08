@@ -39,7 +39,7 @@ export const levelUp = (vipLevel:number) => ({
   vipLevel,
 });
 
-export const changeBalance = (newBalance:number) => ({
+export const changeBalance = (addBalance:number) => ({
   type: types.CHANGE_BALANCE,
-  newBalance,
+  addBalance,
 });
