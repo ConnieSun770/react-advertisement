@@ -73,7 +73,7 @@ class VipCard extends Component<IProps, IStates> {
               <div className="row">
                 <div className="label-text">当前推广功能:</div>
                 <div className="value-text">
-                  {currentVip.description}
+                  {currentVip.description + (currentVip.new ? `, ${currentVip.new}` : '') }
                 </div>
               </div>
               <div className="row">
@@ -95,7 +95,7 @@ class VipCard extends Component<IProps, IStates> {
               <div className="row">
                 <div className="label-text">当前推广功能:</div>
                 <div className="value-text">
-                  {VIP_LIST[4].description}
+                  {`${VIP_LIST[4].description}, ${VIP_LIST[4].new}`}
                 </div>
               </div>
               <div className="row">

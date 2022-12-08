@@ -7,6 +7,7 @@ import LoginPage from 'pages/login/index';
 import PromotionDataPage from 'pages/promotionData/index';
 import VipPage from 'pages/vipPage/index';
 import TopUpPage from 'pages/topUpPage';
+import ProductPage from 'pages/ProductPage';
 import App from '../App';
 
 const allRoutes = [
@@ -38,6 +39,12 @@ const allRoutes = [
     path: '/top_up',
     exact: false,
     component: TopUpPage,
+    title: '',
+  },
+  {
+    path: '/product',
+    exact: false,
+    component: ProductPage,
     title: '',
   },
 ];

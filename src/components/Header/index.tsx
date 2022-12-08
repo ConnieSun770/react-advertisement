@@ -2,6 +2,7 @@ import React from 'react';
 // @ts-ignore
 import { cloneDeep } from 'lodash';
 import './style.scss';
+import { message } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { MENU_INDEX_CONFIG } from 'common/constants/menu';
 import MenuItem from '@components/Header/MenuItem';
@@ -16,10 +17,16 @@ interface IStates {
 class Header extends React.Component<IProps, IStates> {
   state = {}
 
-  handleClick= (url:string) => {
+  handleClick= (url:string, hasChildren:boolean) => {
     const { history } = this.props;
-    if (history && url) {
+    if (url) {
       history.push(url);
+    } else if (hasChildren) {
+      message.open({
+        type: 'info',
+        content: '功能正在开发中,敬请期待!',
+      })
+        . then((r) => console.log(r));
     }
   }
 
@@ -40,7 +47,7 @@ class Header extends React.Component<IProps, IStates> {
                     || menuItem.menuChildren.some((item) => history.location.pathname === item.url)
                   }
                   key={`index-menuItem${index.toString()}`}
-                  onClick={(url:string) => this.handleClick(url)}
+                  onClick={(url:string, hasChildren:boolean) => this.handleClick(url, hasChildren)}
                 />
               ))
             }

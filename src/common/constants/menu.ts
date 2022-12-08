@@ -99,20 +99,24 @@ export const MENU_INDEX_CONFIG = [
     name: '网络大学',
     menuChildren: [
       {
-        label: '产品图谱',
-        url: '',
+        label: '广告类型',
+        url: '/product',
+        menuChildren: [],
       },
       {
         label: '案例锦集',
         url: '',
+        menuChildren: [],
       },
       {
         label: '产品认证',
         url: '',
+        menuChildren: [],
       },
       {
         label: '帮助中心',
         url: '',
+        menuChildren: [],
       },
     ],
     isActive: false,
@@ -130,10 +134,12 @@ export const MENU_INDEX_CONFIG = [
       {
         label: '产品营销客户端',
         url: '',
+        menuChildren: [],
       },
       {
         label: '产品营销手机版',
         url: '',
+        menuChildren: [],
       },
     ],
     isActive: false,

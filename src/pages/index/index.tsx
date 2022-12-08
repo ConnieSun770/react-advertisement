@@ -109,7 +109,7 @@ class IndexPage extends Component<Props, States> {
                 <CardArea history={history} vipLevel={vipLevel} />
               </div>
               <div className="product-card-area">
-                <ProductCard />
+                <ProductCard history={history} />
               </div>
             </div>
             <div className="right-content">

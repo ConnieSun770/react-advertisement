@@ -3,15 +3,16 @@ import { MenuItemInfoType } from './types';
 
 interface IProps {
   isActive?:boolean;
-  onClick?:(url: string) =>void;
+  onClick?:(url: string, hasChildren: boolean) =>void;
   menuItemInfo:MenuItemInfoType;
 }
 
 class MenuItem extends Component<IProps> {
-  handleMenuClick(url:string) {
+  handleMenuClick(item:any) {
+    const { url } = item;
     const { onClick } = this.props;
     if (onClick) {
-      onClick(url);
+      onClick(url, item.menuChildren.length === 0);
     }
   }
 
@@ -19,7 +20,7 @@ class MenuItem extends Component<IProps> {
     const { menuItemInfo, isActive } = this.props;
     return (
       <div className="index-menuItem-component-box">
-        <div className="menu-item-title" onClick={() => this.handleMenuClick(menuItemInfo.url)}>
+        <div className="menu-item-title" onClick={() => this.handleMenuClick(menuItemInfo)}>
           { menuItemInfo.name }
           {
             menuItemInfo.menuChildren.length > 0 && (<span className="arrow-icon" />)
@@ -36,7 +37,7 @@ class MenuItem extends Component<IProps> {
                   <div
                     className="menu-child"
                     key={`menu-child${index.toString()}`}
-                    onClick={() => this.handleMenuClick(menuChild.url)}
+                    onClick={() => this.handleMenuClick(menuChild)}
                   >
                     <div className="menu-child-label">
                       {menuChild.label}

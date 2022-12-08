@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { message } from 'antd';
 import './style.scss';
 import PRODUCTSERVICE_CONFIG from 'common/constants/productService';
 
 interface IProps {
+  history:any;
 }
 
 interface IStates {
@@ -12,7 +14,15 @@ class Product extends Component<IProps, IStates> {
   state = {}
 
   handleServiceItemClick = (url: string) => {
-    window.location.href = `#${url}`;
+    const { history } = this.props;
+    if (url) {
+      history.push(url);
+    } else {
+      message.open({
+        type: 'info',
+        content: '功能正在开发中,敬请期待!',
+      });
+    }
   }
 
   render() {

@@ -1,9 +1,10 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3811251 */
   /* Color fonts */
-  src: url('//at.alicdn.com/t/c/font_3811251_73ifxpbh1di.woff2?t=1670305232267') format('woff2'),
-  url('//at.alicdn.com/t/c/font_3811251_73ifxpbh1di.woff?t=1670305232267') format('woff'),
-  url('//at.alicdn.com/t/c/font_3811251_73ifxpbh1di.ttf?t=1670305232267') format('truetype');
+  src:
+          url('//at.alicdn.com/t/c/font_3811251_mrsrj8omhg.woff2?t=1670486044569') format('woff2'),
+          url('//at.alicdn.com/t/c/font_3811251_mrsrj8omhg.woff?t=1670486044569') format('woff'),
+          url('//at.alicdn.com/t/c/font_3811251_mrsrj8omhg.ttf?t=1670486044569') format('truetype');
 }
 
 .iconfont {
@@ -12,6 +13,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-renminbi:before {
+  content: "\e600";
 }
 
 .icon-kafei:before {

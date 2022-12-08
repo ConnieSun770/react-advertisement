@@ -8,7 +8,7 @@ import Footer from '@components/Footer';
 import TOP_UP_LIST from 'common/constants/topUp';
 import './styles.scss';
 import { connect } from 'react-redux';
-import { addToTable, changeBalance } from 'store/index/actions';
+import { changeBalance } from 'store/index/actions';
 
 export interface userDataType {
   name:string;
@@ -80,14 +80,20 @@ class TopUpPage extends Component<IProps, IStates> {
 
   render() {
     const { history, userData } = this.props;
-    const { name } = userData;
+    const { name, balance } = userData;
     const { isTopUpModal, currentTopUp } = this.state;
     return (
       <div className="top-up-component-box">
         <div className="header-box">
           <Header history={history} username={name} />
         </div>
-        <div className="top-up-title">充值中心</div>
+        <div className="top-up-title">
+          <div className="text">充值中心</div>
+          <div className="balance-box">
+            <div className="icon iconfont icon-renminbi" />
+            {balance}
+          </div>
+        </div>
         <div className="content-box">
           {
             TOP_UP_LIST.map((topUpItem, index) => (
