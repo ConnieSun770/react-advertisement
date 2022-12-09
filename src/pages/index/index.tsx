@@ -24,6 +24,7 @@ interface userDataType {
   balance:number;
   creditValue:number;
   vipLevel:number;
+  avatar:string;
 }
 
 interface Props extends RouteComponentProps{
@@ -72,7 +73,7 @@ class IndexPage extends Component<Props, States> {
   render() {
     const { history, userData } = this.props;
     const {
-      name, balance, creditValue, status, vipLevel,
+      name, balance, creditValue, status, vipLevel, avatar,
     } = userData;
     const { theme } = this.state;
     return (
@@ -80,7 +81,7 @@ class IndexPage extends Component<Props, States> {
       <Provider store={indexDataStore}>
         <div className="index-page">
           <div className="header-box">
-            <Header history={history} username={name} />
+            <Header history={history} username={name} avatar={avatar} />
           </div>
           <div className="content-box">
             <div className="left-content">

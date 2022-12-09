@@ -3,13 +3,13 @@ import React from 'react';
 import { cloneDeep } from 'lodash';
 import './style.scss';
 import { message } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
 import { MENU_INDEX_CONFIG } from 'common/constants/menu';
 import MenuItem from '@components/Header/MenuItem';
 
 interface IProps {
   history?:any;
   username:string;
+  avatar:string;
 }
 interface IStates {
 }
@@ -31,11 +31,11 @@ class Header extends React.Component<IProps, IStates> {
   }
 
   render() {
-    const { history, username } = this.props;
+    const { history, username, avatar } = this.props;
     return (
       <div className="header-component-box">
         <div className="left">
-          <div className="logo" />
+          <div className="logo" onClick={() => history.push('/index')} />
           <div className="menu">
             {
               MENU_INDEX_CONFIG.map((menuItem, index) => (
@@ -53,8 +53,8 @@ class Header extends React.Component<IProps, IStates> {
             }
           </div>
         </div>
-        <div className="user-info">
-          <UserOutlined />
+        <div className="user-info" onClick={() => history.push('/vip')}>
+          <img className="avatar" src={avatar ? `assets/avatarimg/${avatar}.png` : 'assets/avatarimg/山水.png'} alt="" />
           <span className="user-name">{username}</span>
         </div>
       </div>

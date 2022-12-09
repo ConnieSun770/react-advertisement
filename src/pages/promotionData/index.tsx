@@ -62,6 +62,7 @@ interface userDataType {
   balance:number;
   creditValue:number;
   vipLevel:number;
+  avatar:string;
 }
 
 interface IProps extends RouteComponentProps{
@@ -93,7 +94,7 @@ class PromotionDataPage extends Component<IProps, any> {
       history, userData, dataSource, addTo,
     } = this.props;
     const {
-      name, status, balance, creditValue, vipLevel,
+      name, status, balance, creditValue, vipLevel, avatar,
     } = userData;
     // const { modalShow } = this.state;
     const { modalShow } = promotionStore;
@@ -101,7 +102,7 @@ class PromotionDataPage extends Component<IProps, any> {
       <Provider store={promotionStore}>
         <div className="promotion-data-page-box">
           <div className="header">
-            <Header history={history} username={name} />
+            <Header history={history} username={name} avatar={avatar} />
           </div>
           <div className="content">
             <div className="account-area">

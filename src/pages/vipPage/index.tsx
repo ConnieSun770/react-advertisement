@@ -23,7 +23,7 @@ class VipPage extends Component<IProps, IStates> {
     return (
       <div className="vip-page-components-box">
         <div className="header-box">
-          <Header username="Connie Sun" history={history} />
+          <Header username="Connie Sun" history={history} avatar={avatar} />
         </div>
         <div className="content-box">
           <div className="user-info-area">

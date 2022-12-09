@@ -1,2 +1,4 @@
 # react-advertisement
-React + Typescript
+React + redux + Typescript
+
+

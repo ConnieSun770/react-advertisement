@@ -80,12 +80,12 @@ class TopUpPage extends Component<IProps, IStates> {
 
   render() {
     const { history, userData } = this.props;
-    const { name, balance } = userData;
+    const { name, balance, avatar } = userData;
     const { isTopUpModal, currentTopUp } = this.state;
     return (
       <div className="top-up-component-box">
         <div className="header-box">
-          <Header history={history} username={name} />
+          <Header history={history} username={name} avatar={avatar} />
         </div>
         <div className="top-up-title">
           <div className="text">充值中心</div>

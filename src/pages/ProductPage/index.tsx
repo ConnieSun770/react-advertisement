@@ -24,13 +24,18 @@ interface IStates{
 }
 
 class ProductPage extends Component<IProps, IStates> {
+  componentDidMount() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+
   render() {
     const { history, userData, productList } = this.props;
-    const { name, vipLevel } = userData;
+    const { name, vipLevel, avatar } = userData;
     return (
       <div className="product-page-box">
         <div className="header-box">
-          <Header history={history} username={name} />
+          <Header history={history} username={name} avatar={avatar} />
         </div>
         <div className="product-page-title">广告类型</div>
         <div className="content-box">

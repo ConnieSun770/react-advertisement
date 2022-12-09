@@ -15,9 +15,9 @@ const PRODUCTSERVICE_CONFIG = [
     link: '/top_up',
   },
   {
-    marketToolTitle: '课程通',
+    marketToolTitle: '广告类型',
     marketToolImgUrl: 'assets/productimgs/直播系统.png',
-    link: '',
+    link: '/product',
   },
   {
     marketToolTitle: '操作盘',
