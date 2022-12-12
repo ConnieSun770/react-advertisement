@@ -10,7 +10,7 @@ interface IProps {
   desc:string;
   type:number;
   btnStatus:boolean;
-  cost?:number;
+  cost:number;
   budget?:number;
   vipLevel:number;
   vipRequired?:number;
@@ -20,14 +20,26 @@ interface IStates {
   editModalShow:boolean;
   budgetOption:number;
   budgetValue:number;
+  dailyBudget:number;
 }
 
 class PromotionCard extends Component<IProps, IStates> {
-  state = {
-    editModalShow: false,
-    budgetOption: 1,
-    budgetValue: 0,
+  // eslint-disable-next-line no-useless-constructor
+  constructor(props: IProps) {
+    super(props);
+    this.state = {
+      dailyBudget: props.budget || 0,
+      editModalShow: false,
+      budgetOption: 1,
+      budgetValue: 0,
+    };
   }
+
+  // state = {
+  //   editModalShow: false,
+  //   budgetOption: 1,
+  //   budgetValue: 0,
+  // }
 
   openEditBudgetModal = () => {
     this.setState({
@@ -36,8 +48,10 @@ class PromotionCard extends Component<IProps, IStates> {
   }
 
   handleBudgetOk = () => {
+    const { budgetValue } = this.state;
     this.setState({
       editModalShow: false,
+      dailyBudget: budgetValue,
     });
   }
 
@@ -75,6 +89,7 @@ class PromotionCard extends Component<IProps, IStates> {
       editModalShow,
       budgetOption,
       budgetValue,
+      dailyBudget,
     } = this.state;
     const radioStyle = {
       display: 'block',
@@ -94,7 +109,7 @@ class PromotionCard extends Component<IProps, IStates> {
               <div className="wrap">
                 <div className="label">日预算(元)</div>
                 <div className="value">
-                  {budget}
+                  {dailyBudget}
                   <EditOutlined
                     onClick={this.openEditBudgetModal}
                     style={{ marginLeft: 5 }}
@@ -107,6 +122,7 @@ class PromotionCard extends Component<IProps, IStates> {
           )
         }
         {
+          // eslint-disable-next-line no-nested-ternary
           type === 1 ? (
             <div className="btn-wrap">
               <Button
@@ -140,6 +156,7 @@ class PromotionCard extends Component<IProps, IStates> {
           open={editModalShow}
           onOk={this.handleBudgetOk}
           onCancel={this.handleBudgetCancel}
+          okButtonProps={{ disabled: budgetValue < 50 }}
           okText="确定"
           cancelText="取消"
           className="budget-modal"
