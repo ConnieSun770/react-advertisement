@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router-dom';
 import Header from '@components/Header';
 import './style.scss';
-import { DatePicker, Select } from '_antd@4.24.4@antd';
+import { DatePicker, Select } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
 import Footer from '@components/Footer';
 import DataChartIndex from '@components/DataChartIndex';
